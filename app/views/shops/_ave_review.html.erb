@@ -1,0 +1,85 @@
+    <span>総合評価：
+        <% if @ave_review == nil %>
+          <span><img src="/assets/star-off.png">
+           <img src="/assets/star-off.png">
+           <img src="/assets/star-off.png">
+           <img src="/assets/star-off.png">
+           <img src="/assets/star-off.png"></span>
+
+        <% elsif @ave_review > 0 && @ave_review <= 0.75 %>
+          <span><img src="/assets/star-half.png">
+           <img src="/assets/star-off.png">
+           <img src="/assets/star-off.png">
+           <img src="/assets/star-off.png">
+           <img src="/assets/star-off.png"></span>
+
+        <% elsif @ave_review > 0.75 && @ave_review <= 1.25 %>
+          <span><img src="/assets/star-on.png">
+           <img src="/assets/star-off.png">
+           <img src="/assets/star-off.png">
+           <img src="/assets/star-off.png">
+           <img src="/assets/star-off.png"></span>
+
+        <% elsif @ave_review > 1.25 && @ave_review <= 1.75 %>
+          <span><img src="/assets/star-on.png">
+           <img src="/assets/star-half.png">
+           <img src="/assets/star-off.png">
+           <img src="/assets/star-off.png">
+           <img src="/assets/star-off.png"></span>
+
+        <% elsif @ave_review > 1.75 && @ave_review <= 2.25 %>
+          <span><img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-off.png">
+          <img src="/assets/star-off.png">
+          <img src="/assets/star-off.png"></span>
+
+        <% elsif @ave_review > 2.25 && @ave_review <= 2.75 %>
+          <span><img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-half.png">
+          <img src="/assets/star-off.png">
+          <img src="/assets/star-off.png"></span>
+
+        <% elsif @ave_review > 2.75 && @ave_review <= 3.25 %>
+          <span><img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-off.png">
+          <img src="/assets/star-off.png"></span>
+
+        <% elsif @ave_review > 3.25 && @ave_review <= 3.75 %>
+          <span><img src="/assets/star-on.png">
+            <img src="/assets/star-on.png">
+            <img src="/assets/star-on.png">
+            <img src="/assets/star-half.png">
+            <img src="/assets/star-off.png"></span>
+
+        <% elsif @ave_review > 3.75 && @ave_review <= 4.25 %>
+          <span><img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-off.png"></span>
+
+        <% elsif @ave_review > 4.25 && @ave_review <= 4.75 %>
+          <span><img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-half.png"></span>
+
+        <% elsif @ave_review > 4.75 && @ave_review <= 5.00 %>
+          <span><img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-on.png">
+          <img src="/assets/star-on.png"></span>
+
+        <% end %>
+        <% if @ave_review %>
+        (<%= @ave_review.round(2) %>)
+        <% else %>
+        (0.00)
+        <% end %>
+      </span>

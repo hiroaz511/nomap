@@ -1,0 +1,28 @@
+      <div class="container-sub text-center text-dark bg-light">
+        <h4 class="pt-3">新規ユーザー登録</h4>
+
+		<%= form_with(url: users_create_path, local: true, multipart: true) do |form| %>
+	          <div class="field">
+			    <%= form.label :"ユーザー名" %>
+			    <%= form.text_field :name %>
+			  </div>
+
+	         <div class="field">
+			    <%= form.label :"メールアドレス" %>
+			    <%= form.text_field :email %>
+			  </div>
+
+	          <div class="field">
+			    <%= form.label :"パスワード" %>
+				<%= form.password_field :password %>
+			  </div>
+
+			  <div class="field">
+			    <%= form.label :ユーザー画像 %>
+			    <%= form.file_field :user_image %>
+			 </div>
+			 <div class="actions">
+			  <%= form.submit :新規登録 %>
+			</div>
+	    <% end %>
+      </div>

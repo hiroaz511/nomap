@@ -1,0 +1,19 @@
+<h5>店舗レビューを書く</h5>
+<div class="bg-white border roudedm p-2">
+<%= form_with(model: [ @shop, @shop.reviews.build ], local: true) do |form| %>
+    <%= form.hidden_field :reviewer, value: @current_user.name %>
+  <p>
+    <%= form.hidden_field :rate %>
+    <div id='stars'><span>満足度： </span></div>
+  </p>
+
+  <p>
+  	レビュー本文：
+    <%= form.text_area :body, class: "form-control z-depth-1 col-xs-10 col-md-8 col-lg-8" %>
+  </p>
+  <p class="text-center">
+    <%= form.submit value: "追加", class: "btn btn-success btn text-right"%>
+  </p>
+<% end %>
+</div>
+

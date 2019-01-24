@@ -1,0 +1,25 @@
+<div class="container-sub text-center text-dark">
+  <h4 class="pt-3">ログイン</h4>
+      <div>
+        <% if @error_message %>
+          <div class="text-danger">
+            <%= @error_message %>
+          </div>
+        <% end %>
+        <%= form_with(url: login_path, local: true, multipart: true) do |form| %>
+         <div class="field">
+          <%= form.label :"メールアドレス" %>
+          <%= form.text_field :email %>
+         </div>
+
+         <div class="field">
+          <%= form.label :"パスワード" %>
+          <%= form.password_field :password %>
+         </div>
+
+         <div class="actions">
+          <%= form.submit :ログイン %>
+         </div>
+        <% end %>
+       </div>
+</div>

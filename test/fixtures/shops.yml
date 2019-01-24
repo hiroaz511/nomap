@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  station: MyString
+  prefucture: MyString
+  city: MyString
+  address: MyString
+  url: MyString
+  tell_num: 1
+  shop_image: MyString
+  business_hours: 1
+  holidays: 1
+  features: 1
+
+two:
+  name: MyString
+  station: MyString
+  prefucture: MyString
+  city: MyString
+  address: MyString
+  url: MyString
+  tell_num: 1
+  shop_image: MyString
+  business_hours: 1
+  holidays: 1
+  features: 1

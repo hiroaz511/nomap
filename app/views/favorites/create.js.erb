@@ -1,0 +1,9 @@
+$(function(){
+	var $favorite_btn = $('#favorite-button<%= @shop.id %>');
+
+	if ($favorite_btn.hasClass('favorited-icon')){
+		$favorite_btn.removeClass('fas favorited-icon').addClass('far favorite-icon');
+	} else {
+		$favorite_btn.removeClass('far favorite-icon').addClass('fas favorited-icon');
+    }
+});

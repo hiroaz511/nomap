@@ -1,0 +1,69 @@
+
+<div class="display-block col-xs-12 col-md-10 col-lg-6 mx-auto bg-light">
+   <div class="border-top border-bottom">
+    <h5 class="mr-3 pt-2" id="shop-name">
+      <%= @shop.name %>
+      <span class="display-box py-2 pr-3 text-center">
+        <% if Favorite.find_by(user_id: @current_user.id, shop_id: @shop.id) %>
+          <%= link_to("/favorites/#{@shop.id}/destroy", method: :delete, remote: true, class: 'text-dark favo') do %>
+          <span class="fas fa-bookmark favorited-icon"  id="favorite-button<%= @shop.id %>"></span>
+          <% end %>
+        <% else %>
+          <%= link_to("/favorites/#{@shop.id}/create", method: :post, remote: true, class: 'text-dark favo') do %>
+          <span class="far fa-bookmark favorite-icon" id="favorite-button<%= @shop.id %>"></span>
+          <% end %>
+          <% end %>
+      </span>
+    </h5>
+
+
+
+      <p><%= render "ave_review" %><span class="ml-3">最寄り駅:(<%= @shop.station %>)駅</span></p>
+</div>
+
+
+
+<div class="p-3 mb-3 text-center bg-white border">
+  <div class="mb-3">
+    <img src = "<%= "/#{@shop.shop_image}" %>" class="shop-pic">
+  </div>
+  <div class="text-left">
+    <ul class="list-group">
+        <li class="list-group-item"><i class="fas fa-map-marker-alt pr-1"></i>住所: <span id="shop-address"><%= @shop.prefucture+@shop.city+@shop.address %></span></li>
+        <li class="list-group-item"><i class="fas fa-phone pr-1"></i>電話番号: <span><%= @shop.tell_num %></span></li>
+        <li class="list-group-item"><i class="fas fa-laptop pr-1"></i>URL: <span><a href="<%= @shop.url %>" target="_blank"><%= @shop.url %></a></span></li>
+        <li class="list-group-item"><i class="far fa-clock pr-1"></i>営業時間: <span><%= @shop.start_time %>〜<%= @shop.end_time %></span></li>
+        <li class="list-group-item"><i class="fas fa-exclamation-triangle pr-1"></i>定休日: <span><%= @shop.holidays %></span></li>
+        <li class="list-group-item"><i class="far fa-flag pr-1"></i>特徴: 
+          <span>
+            <%= @shop.wifi %>
+            <%= @shop.sockets %>
+            <%= @shop.non_smorker %>
+            <%= @shop.smorker %>
+            <%= @shop.mid_night %>
+            <%= @shop.close_from_station %>
+            <%= @shop.parking %>
+            <%= @shop.co_working %>
+            <%= @shop.printer %>
+          </span></li>
+    </ul>
+  </div>
+</div>
+
+
+<div id="map" class="mr-3 border rounded">
+</div>
+
+<h5 class="pt-4">店舗レビュー</h5>
+  <% unless @ave_review == nil %>
+    <%= render @shop.reviews %>
+  <% else %>
+    <p class="pl-2">この店舗のレビューはまだありません</p>
+  <% end %>
+<% if session[:user_id] %>
+<%= render "reviews/form" %>
+<% end %>
+
+<%= link_to 'Edit', edit_shop_path(@shop) %> |
+<%= link_to 'Back', shops_path %>
+

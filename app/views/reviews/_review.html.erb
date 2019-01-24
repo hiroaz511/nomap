@@ -1,0 +1,55 @@
+
+<div class="bg-white border rounded my-3 p-2">
+    <div>
+       <% if review.rate == 1  %>
+       	<p><img src="/assets/star-on.png">
+       	   <img src="/assets/star-off.png">
+       	   <img src="/assets/star-off.png">
+       	   <img src="/assets/star-off.png">
+       	   <img src="/assets/star-off.png"></p>
+
+       <% elsif review.rate == 2 %>
+       	<p><img src="/assets/star-on.png">
+       		<img src="/assets/star-on.png">
+       		<img src="/assets/star-off.png">
+       		<img src="/assets/star-off.png">
+       		<img src="/assets/star-off.png"></p>
+
+       <% elsif review.rate == 3 %>
+       	<p><img src="/assets/star-on.png">
+       		<img src="/assets/star-on.png">
+       		<img src="/assets/star-on.png">
+       		<img src="/assets/star-off.png">
+       		<img src="/assets/star-off.png"></p>
+
+       <% elsif review.rate == 4 %>
+       	<p><img src="/assets/star-on.png">
+       		<img src="/assets/star-on.png">
+       		<img src="/assets/star-on.png">
+       		<img src="/assets/star-on.png">
+       		<img src="/assets/star-off.png"></p>
+
+       <% elsif review.rate == 5 %>
+       	<p><img src="/assets/star-on.png">
+       		<img src="/assets/star-on.png">
+       		<img src="/assets/star-on.png">
+       		<img src="/assets/star-on.png">
+       		<img src="/assets/star-on.png"></p>
+       <% end %>
+
+       <p class="pb-2"><%= review.body %></p>
+
+        <p><span><img src="/no-image.png" class="user-img-sm"></span><%= review.reviewer %>さん
+        <span class="float-right">
+        <% if session[:user_id] && review.reviewer == @current_user.name %>
+         <%= link_to '×', [review.shop, review],
+          method: :delete,
+          data: { confirm: '本当に削除しますか?' }, class: "btn btn-secondary btn-sm text-right" %>
+
+        <% else %>
+         <div></div>
+        <% end %>
+    	</span>
+        </p>
+    </div>
+</div>
