@@ -19,8 +19,6 @@ class ReviewsController < ApplicationController
 
   end
 
-  # DELETE /reviews/1
-  # DELETE /reviews/1.json
   def destroy
     @shop = Shop.find(params[:shop_id])
     @review = @shop.reviews.find(params[:id])
