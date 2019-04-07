@@ -93,7 +93,6 @@ class ShopsController < ApplicationController
        @shop.printer = ""
     end
 
-
     respond_to do |format|
       if @shop.save
         format.html { redirect_to @shop, notice: '店舗登録を完了しました' }
